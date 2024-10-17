@@ -1,10 +1,4 @@
-# Hoppix
-
-## Description
-
-Hoppix is a project that aims to provide an example TVOS application built using React Native. It includes features such as navigation, state management, and integration with web development.
-
-## Installation
+## Usage
 
 To install the project, follow these steps:
 
@@ -19,22 +13,11 @@ To install the project, follow these steps:
    yarn prebuild
    ```
 
-## Usage
-
-### Running the TVOS Application on Apple TV or Android TV
-
-You can run this demo application on AppleTV or AndroidTV
-To start the TV application, use one of the following commands:
-
 ```
-yarn start
-yarn ios
 yarn android
+# yarn start
+# yarn ios
 ```
-
-This will initiate the TV application using React Native's Metro bundler.
-
-Make sure you have set up the necessary emulator/device configurations on XCode or Android Studio to run the project on AppleTV or Android TV.
 
 ### tvOS troubleshooting
 
@@ -69,6 +52,13 @@ In order to use Spatial Navigation in the Web Application or TV Application, you
 
 See [Remote Control](./src/components/remote-control/) for how to manage Platform Specific remote controls.
 
-## Contributing
+## Build
 
-Contributions to Hoppix are welcome! If you find any issues or want to enhance the project, please submit a pull request or open an issue on the repository.
+```shell
+
+yarn install
+
+yarn prebuild
+
+yarn preview
+```

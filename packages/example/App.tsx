@@ -3,7 +3,9 @@ import { ThemeProvider } from '@emotion/react';
 import { NavigationContainer } from '@react-navigation/native';
 import { useWindowDimensions } from 'react-native';
 import { theme } from './src/design-system/theme/theme';
-import { Home } from './src/pages/Home';
+// import { Home } from './src/pages/Home';
+import { Home } from './src/pages/HomePage2';
+import { Home as Home3 } from './src/pages/HomePage3';
 import { ProgramGridPage } from './src/pages/ProgramGridPage';
 import { Menu } from './src/components/Menu/Menu';
 import { MenuProvider } from './src/components/Menu/MenuContext';
@@ -55,11 +57,11 @@ const TabNavigator = () => {
         }}
       >
         <Tab.Screen name="Home" component={Home} />
-        <Tab.Screen name="ProgramGridPage" component={ProgramGridPage} />
-        <Tab.Screen name="NonVirtualizedGridPage" component={NonVirtualizedGridPage} />
+        <Tab.Screen name="ProgramGridPage" component={Home3} />
+        {/* <Tab.Screen name="NonVirtualizedGridPage" component={NonVirtualizedGridPage} />
         <Tab.Screen name="GridWithLongNodesPage" component={GridWithLongNodesPage} />
         <Tab.Screen name="ListWithVariableSize" component={ListWithVariableSize} />
-        <Tab.Screen name="AsynchronousContent" component={AsynchronousContent} />
+        <Tab.Screen name="AsynchronousContent" component={AsynchronousContent} /> */}
       </Tab.Navigator>
     </MenuProvider>
   );

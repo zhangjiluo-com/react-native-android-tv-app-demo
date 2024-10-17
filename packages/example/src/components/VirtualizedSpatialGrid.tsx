@@ -1,6 +1,6 @@
 import { useTheme } from '@emotion/react';
 import { useCallback, useMemo } from 'react';
-import { StyleSheet, View, ViewStyle } from 'react-native';
+import { StyleSheet, View, ViewStyle, Text } from 'react-native';
 import { SpatialNavigationVirtualizedGrid } from 'react-tv-space-navigation';
 import { getPrograms } from '../modules/program/infra/programInfos';
 import { ProgramNode } from '../modules/program/view/ProgramNode';
@@ -29,6 +29,7 @@ export const VirtualizedSpatialGrid = ({ containerStyle }: { containerStyle?: Vi
 
   return (
     <View style={[styles.container, containerStyle]}>
+      <Text style={styles.text}>323</Text>
       <SpatialNavigationVirtualizedGrid
         data={hardcodedRabbitsArray}
         header={
@@ -81,5 +82,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     bottom: -15,
     left: 0,
+  },
+  text: {
+    color: '#fff',
   },
 });
