@@ -12,6 +12,7 @@ import { Button } from '../design-system/components/Button';
 // } from '../modules/program/view/ProgramListWithTitle';
 // import { BottomArrow, TopArrow } from '../design-system/components/Arrows';
 import { StyleSheet, Text, View } from 'react-native';
+import { Video } from 'react-native-video';
 
 export const Home = () => {
   return (
@@ -24,6 +25,13 @@ export const Home = () => {
         <View style={{ flex: 1, paddingLeft: 250, display: 'flex', gap: 30 }}>
           <Button label="3. Press Me !"></Button>
           <Button label="4. Press Me !"></Button>
+        </View>
+        <View style={styles.container}>
+          <Video
+            source={{ uri: 'https://av-cdn.ifun.com/cae2c9732f6fa762f5205c9e5170479a.mp4' }}
+            style={styles.video}
+            controls
+          />
         </View>
       </DefaultFocus>
     </Page>
@@ -38,28 +46,19 @@ const Title = styled(Typography)(({ theme }) => ({
 }));
 
 const styles = StyleSheet.create({
-  topArrowContainer: {
-    width: '100%',
-    height: 100,
-    position: 'absolute',
-    alignItems: 'center',
-    justifyContent: 'center',
-    top: 20,
-    left: 0,
-  },
-  bottomArrowContainer: {
-    width: '100%',
-    height: 100,
-    position: 'absolute',
-    alignItems: 'center',
-    justifyContent: 'center',
-    bottom: -15,
-    left: 0,
-  },
   text: {
     fontSize: 50,
     textAlign: 'center',
     margin: 10,
     backgroundColor: 'red',
+  },
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  video: {
+    width: '100%',
+    height: '100%',
   },
 });
