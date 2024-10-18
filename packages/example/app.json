@@ -11,9 +11,7 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.reactTvSpaceNavigation.hoppixTv"
@@ -49,7 +47,8 @@
             "./assets/fonts/Montserrat-Medium.ttf"
           ]
         }
-      ]
+      ],
+      "./android-manifest.plugin.js"
     ],
     "extra": {
       "eas": {
@@ -57,9 +56,7 @@
       }
     },
     "owner": "zhangjiluo",
-    "runtimeVersion": {
-      "policy": "appVersion"
-    },
+    "runtimeVersion": "1.0.1",
     "updates": {
       "url": "https://u.expo.dev/8a42c067-a825-490c-9bf7-66aa532e9ede"
     }
