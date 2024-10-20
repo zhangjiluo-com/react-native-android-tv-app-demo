@@ -10,7 +10,7 @@
     "build:web": "expo export -p web",
     "test:types": "tsc",
     "prebuild": "EXPO_TV=1 expo prebuild --clean -p android",
-    "preview": "yarn dlx eas-cli build --platform android --profile preview"
+    "preview": "yarn dlx eas-cli@12.5.3 build --platform android --profile preview"
   },
   "dependencies": {
     "@bam.tech/react-native-keyevent-expo-config-plugin": "^1.0.52",
@@ -31,6 +31,7 @@
     "jest-environment-jsdom": "^29.7.0",
     "jest-watch-typeahead": "^2.2.2",
     "lucide-react-native": "^0.335.0",
+    "mitt": "^3.0.1",
     "react": "18.2.0",
     "react-native": "npm:react-native-tvos@0.74.1-0",
     "react-native-ble-plx": "^3.2.1",
