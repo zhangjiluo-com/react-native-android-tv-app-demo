@@ -3,8 +3,8 @@ import { ThemeProvider } from '@emotion/react';
 import { NavigationContainer } from '@react-navigation/native';
 import { useWindowDimensions, Text, View } from 'react-native';
 import { theme } from './src/design-system/theme/theme';
-// import { Home } from './src/pages/Home';
-import { Home } from './src/pages/HomePage2';
+import { Home } from './src/pages/Home';
+// import { Home } from './src/pages/HomePage2';
 import { Home as Home3 } from './src/pages/HomePage3';
 import { ProgramGridPage } from './src/pages/ProgramGridPage';
 import { Menu } from './src/components/Menu/Menu';
@@ -19,6 +19,7 @@ import { NonVirtualizedGridPage } from './src/pages/NonVirtualizedGridPage';
 import { GridWithLongNodesPage } from './src/pages/GridWithLongNodesPage';
 import { useTVPanEvent } from './src/components/PanEvent/useTVPanEvent';
 import { SpatialNavigationDeviceTypeProvider } from '../lib/src/spatial-navigation/context/DeviceContext';
+import { VideoPlayerPage } from './src/pages/video-player-page';
 // import { ListWithVariableSize } from './src/pages/ListWithVariableSize';
 // import { AsynchronousContent } from './src/pages/AsynchronousContent';
 // import * as server from 'expo-http-server';
@@ -42,6 +43,7 @@ export type RootTabParamList = {
 export type RootStackParamList = {
   TabNavigator: undefined;
   ProgramDetail: { programInfo: ProgramInfo };
+  VideoPlayerPage: { videoId?: string | number };
 };
 
 const RenderMenu = (props: BottomTabBarProps) => <Menu {...props} />;
@@ -96,6 +98,7 @@ function App() {
             >
               <Stack.Screen name="TabNavigator" component={TabNavigator} />
               <Stack.Screen name="ProgramDetail" component={ProgramDetail} />
+              <Stack.Screen name="VideoPlayerPage" component={VideoPlayerPage} />
             </Stack.Navigator>
             {/* <View>
               <Text style={{ color: 'red' }}>

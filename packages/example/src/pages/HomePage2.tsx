@@ -22,7 +22,7 @@ export const Home = () => {
       <DefaultFocus>
         <Text style={styles.text}>Home1</Text>
         <View style={{ flex: 1, paddingLeft: 250, display: 'flex', gap: 30 }}>
-          <Button label="1. Press Me !"></Button>
+          <Button label="1. Press Me !" onSelect={() => alert(999)}></Button>
           <Button label="2. Press Me !"></Button>
         </View>
       </DefaultFocus>
