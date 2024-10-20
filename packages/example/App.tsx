@@ -1,7 +1,7 @@
 import './src/components/configureRemoteControl';
 import { ThemeProvider } from '@emotion/react';
 import { NavigationContainer } from '@react-navigation/native';
-import { useWindowDimensions, Text } from 'react-native';
+import { useWindowDimensions, Text, View } from 'react-native';
 import { theme } from './src/design-system/theme/theme';
 // import { Home } from './src/pages/Home';
 import { Home } from './src/pages/HomePage2';
@@ -71,23 +71,29 @@ const TabNavigator = () => {
   );
 };
 
+const html = (title: string) => `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <h1>${title}</h1>
+    <form action="/play" method="post">
+      <button type="submit">发送播放信号</button>
+    </form>
+    <form action="/pause" method="post">
+      <button type="submit">发送暂停信号</button>
+    </form>
+  </body>
+</html>`;
 function App() {
   useTVPanEvent();
   const { height, width } = useWindowDimensions();
   const areFontsLoaded = useFonts();
 
   const [lastCalled, setLastCalled] = useState<number | undefined>();
-
-  const html = `
-	<!DOCTYPE html>
-	<html>
-		<body style="background-color:powderblue;">
-			<h1>expo-http-server</h1>
-			<p>You can load HTML!</p>
-		</body>
-	</html>`;
-
-  const obj = { app: 'expo-http-server', desc: 'You can load JSON!' };
+  const [lastCalled2, setLastCalled2] = useState<string | undefined>('null');
 
   const [webUrl, setWebUrl] = useState<string | undefined>();
 
@@ -102,29 +108,40 @@ function App() {
 
       const ipv4 = await NetworkInfo.getIPV4Address();
       console.log(ipv4);
-      const url = `http://${ipv4}:9666/html`;
+      const url = `http://${ipv4}:9666/`;
       setWebUrl(url);
     });
+
     server.route('/', 'GET', async (request) => {
       console.log('Request', '/', 'GET', request);
       setLastCalled(Date.now());
       return {
         statusCode: 200,
-        headers: {
-          'Custom-Header': 'Bazinga',
-        },
-        contentType: 'application/json',
-        body: JSON.stringify(obj),
+        statusDescription: 'OK - CUSTOM STATUS',
+        contentType: 'text/html',
+        body: html(''),
       };
     });
-    server.route('/html', 'GET', async (request) => {
-      console.log('Request', '/html', 'GET', request);
+    server.route('/play', 'POST', async (request) => {
+      console.log('Request', '/play', 'POST', request);
       setLastCalled(Date.now());
+      setLastCalled2('获取到播放信号');
       return {
         statusCode: 200,
         statusDescription: 'OK - CUSTOM STATUS',
         contentType: 'text/html',
-        body: html,
+        body: html('获取到播放信号'),
+      };
+    });
+    server.route('/pause', 'POST', async (request) => {
+      console.log('Request', '/pause', 'POST', request);
+      setLastCalled(Date.now());
+      setLastCalled2('获取到暂停信号');
+      return {
+        statusCode: 200,
+        statusDescription: 'OK - CUSTOM STATUS',
+        contentType: 'text/html',
+        body: html('获取到暂停信号'),
       };
     });
     server.start();
@@ -154,7 +171,13 @@ function App() {
               <Stack.Screen name="TabNavigator" component={TabNavigator} />
               <Stack.Screen name="ProgramDetail" component={ProgramDetail} />
             </Stack.Navigator> */}
-            <Text style={{ color: 'red' }}>999</Text>
+            <View>
+              <Text style={{ color: 'red' }}>
+                {webUrl}
+                {'\n'}
+              </Text>
+              <Text style={{ color: 'red' }}>{lastCalled2}</Text>
+            </View>
             {webUrl && <WebView source={{ uri: webUrl }}></WebView>}
           </Container>
         </SpatialNavigationDeviceTypeProvider>

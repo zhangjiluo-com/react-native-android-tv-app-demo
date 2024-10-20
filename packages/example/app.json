@@ -21,7 +21,14 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.reactTvSpaceNavigation.hoppixTv"
+      "package": "com.reactTvSpaceNavigation.hoppixTv",
+      "permissions": [
+        "android.permission.BLUETOOTH",
+        "android.permission.BLUETOOTH_ADMIN",
+        "android.permission.BLUETOOTH_SCAN",
+        "android.permission.BLUETOOTH_CONNECT",
+        "android.permission.ACCESS_FINE_LOCATION"
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -48,6 +55,13 @@
           ]
         }
       ],
+      [
+        "react-native-ble-plx",
+        {
+          "isBackgroundEnabled": true,
+          "neverForLocation": true
+        }
+      ],
       "./android-manifest.plugin.js"
     ],
     "extra": {
@@ -56,7 +70,7 @@
       }
     },
     "owner": "zhangjiluo",
-    "runtimeVersion": "1.0.2",
+    "runtimeVersion": "1.0.3",
     "updates": {
       "url": "https://u.expo.dev/8a42c067-a825-490c-9bf7-66aa532e9ede"
     }
