@@ -26,13 +26,13 @@ export const Home = () => {
           <Button label="3. Press Me !"></Button>
           <Button label="4. Press Me !"></Button>
         </View>
-        <View style={styles.container}>
+        {/* <View style={styles.container}>
           <Video
             source={{ uri: 'https://av-cdn.ifun.com/cae2c9732f6fa762f5205c9e5170479a.mp4' }}
             style={styles.video}
             controls
           />
-        </View>
+        </View> */}
       </DefaultFocus>
     </Page>
   );

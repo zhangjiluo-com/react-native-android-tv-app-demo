@@ -50,7 +50,8 @@ export const ProgramList = React.forwardRef<View, ProgramListProps>(
       ({ item, index }: { item: ProgramInfo; index: number }) => (
         <ProgramNode
           programInfo={item}
-          onSelect={() => navigation.push('ProgramDetail', { programInfo: item })}
+          onSelect={() => navigation.push('VideoPlayerPage', { videoId: 1 })}
+          // onSelect={() => navigation.push('ProgramDetail', { programInfo: item })}
           label={index.toString()}
           variant={variant === 'variable-size' && isItemLarge(item) ? 'landscape' : 'portrait'}
         />

@@ -15,7 +15,7 @@ export const Home = () => {
   return (
     <Page>
       <TitleContainer>
-        <Title variant="title">Hoppix</Title>
+        <Title variant="title">Home1</Title>
       </TitleContainer>
       <DefaultFocus>
         <SpatialNavigationScrollView
@@ -26,14 +26,14 @@ export const Home = () => {
           descendingArrowContainerStyle={styles.topArrowContainer}
         >
           <Box padding="$10">
-            <ProgramListWithTitle title="Popular" />
+            {/* <ProgramListWithTitle title="Popular" />
             <Spacer gap="$6" />
             <ProgramListWithTitle title="Classics" />
             <Spacer gap="$6" />
             <ProgramListWithTitle title="Watch again" />
             <Spacer gap="$6" />
             <ProgramListWithTitle title="You may also like..." />
-            <Spacer gap="$6" />
+            <Spacer gap="$6" /> */}
             <ProgramListWithTitleAndVariableSizes
               listSize={10}
               title="Our selection"
@@ -43,8 +43,8 @@ export const Home = () => {
               listSize={100}
               title="Oscar Winners"
             ></ProgramListWithTitleAndVariableSizes>
-            <Spacer gap="$6" />
-            <ProgramListWithTitleAndVariableSizes title="Child section"></ProgramListWithTitleAndVariableSizes>
+            {/* <Spacer gap="$6" />
+            <ProgramListWithTitleAndVariableSizes title="Child section"></ProgramListWithTitleAndVariableSizes> */}
           </Box>
         </SpatialNavigationScrollView>
       </DefaultFocus>
