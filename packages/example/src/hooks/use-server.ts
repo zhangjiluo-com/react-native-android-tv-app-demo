@@ -47,19 +47,19 @@ function startServer() {
     serverClient.url = `http://${ipv4}:${serverClient.port}/`;
   });
 
-  //   route('/api', 'POST', async function () {
-  //     return {
-  //       statusCode: 200,
-  //       contentType: 'text/html',
-  //       body: html(''),
-  //     };
-  //   });
+  route('/', 'GET', async function () {
+    return {
+      statusCode: 200,
+      contentType: 'text/html',
+      body: html(''),
+    };
+  });
   route('/api/play', 'POST', async () => {
     serverClient.emitter.emit('play');
     return {
       statusCode: 200,
       contentType: 'text/html',
-      body: html(''),
+      body: html('play success'),
     };
   });
   route('/api/pause', 'POST', async () => {
@@ -67,7 +67,7 @@ function startServer() {
     return {
       statusCode: 200,
       contentType: 'text/html',
-      body: html(''),
+      body: html('pause success'),
     };
   });
 
