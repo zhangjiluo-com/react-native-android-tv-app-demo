@@ -20,6 +20,7 @@ import { GridWithLongNodesPage } from './src/pages/GridWithLongNodesPage';
 import { useTVPanEvent } from './src/components/PanEvent/useTVPanEvent';
 import { SpatialNavigationDeviceTypeProvider } from '../lib/src/spatial-navigation/context/DeviceContext';
 import { VideoPlayerPage } from './src/pages/video-player-page';
+import { List } from './src/pages/list';
 // import { ListWithVariableSize } from './src/pages/ListWithVariableSize';
 // import { AsynchronousContent } from './src/pages/AsynchronousContent';
 // import * as server from 'expo-http-server';
@@ -44,6 +45,7 @@ export type RootStackParamList = {
   TabNavigator: undefined;
   ProgramDetail: { programInfo: ProgramInfo };
   VideoPlayerPage: { videoId?: string | number };
+  list: undefined;
 };
 
 const RenderMenu = (props: BottomTabBarProps) => <Menu {...props} />;
@@ -94,20 +96,13 @@ function App() {
                   backgroundColor: theme.colors.background.main,
                 },
               }}
-              initialRouteName="TabNavigator"
+              initialRouteName="list"
             >
               <Stack.Screen name="TabNavigator" component={TabNavigator} />
+              <Stack.Screen name="list" component={List} />
               <Stack.Screen name="ProgramDetail" component={ProgramDetail} />
               <Stack.Screen name="VideoPlayerPage" component={VideoPlayerPage} />
             </Stack.Navigator>
-            {/* <View>
-              <Text style={{ color: 'red' }}>
-                {webUrl}
-                {'\n'}
-              </Text>
-              <Text style={{ color: 'red' }}>{lastCalled2}</Text>
-            </View>
-            {webUrl && <WebView source={{ uri: webUrl }}></WebView>} */}
           </Container>
         </SpatialNavigationDeviceTypeProvider>
       </ThemeProvider>
