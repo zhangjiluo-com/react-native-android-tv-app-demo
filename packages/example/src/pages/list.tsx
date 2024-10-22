@@ -51,6 +51,27 @@ const LeftMenuItemText = styled.Text`
 `;
 const Right = styled.View`
   flex: 1;
+  background-color: lightblue;
+`;
+const RightList = styled.View`
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+`;
+const RightListItem = styled.View`
+  width: 223px;
+  background-color: rebeccapurple;
+`;
+const RightListItemCover = styled.Image`
+  width: 223px;
+  height: 311px;
+`;
+const RightListItemTitle = styled.View`
+  height: 40px;
+`;
+const RightListItemTitleText = styled.Text`
+  color: #999;
 `;
 
 const menus = [
@@ -72,27 +93,47 @@ const menus = [
 ];
 
 export function List() {
+  const list = [
+    {
+      id: 1,
+      title: '电影名称',
+      cover: 'http://baidu.com',
+    },
+  ];
   return (
     <Page>
-      <Left>
-        <LeftTitle>
-          <LeftTitleText>极光影院</LeftTitleText>
-        </LeftTitle>
-        <DefaultFocus>
-          <LeftMenu>
-            {menus.map((i) => (
-              <SpatialNavigationFocusableView key={i.title}>
-                {(renderProps) => (
-                  <LeftMenuItem active={false} focused={renderProps.isFocused}>
-                    <LeftMenuItemText>{i.title}</LeftMenuItemText>
-                  </LeftMenuItem>
-                )}
-              </SpatialNavigationFocusableView>
+      <Pod>
+        <Left>
+          <LeftTitle>
+            <LeftTitleText>极光影院</LeftTitleText>
+          </LeftTitle>
+          <DefaultFocus>
+            <LeftMenu>
+              {menus.map((i) => (
+                <SpatialNavigationFocusableView key={i.title}>
+                  {(renderProps) => (
+                    <LeftMenuItem active={false} focused={renderProps.isFocused}>
+                      <LeftMenuItemText>{i.title}</LeftMenuItemText>
+                    </LeftMenuItem>
+                  )}
+                </SpatialNavigationFocusableView>
+              ))}
+            </LeftMenu>
+          </DefaultFocus>
+        </Left>
+        <Right>
+          <RightList>
+            {list.map((item) => (
+              <RightListItem key={item.id}>
+                <RightListItemCover source={{ uri: item.cover }} />
+                <RightListItemTitle>
+                  <RightListItemTitleText>电影名称</RightListItemTitleText>
+                </RightListItemTitle>
+              </RightListItem>
             ))}
-          </LeftMenu>
-        </DefaultFocus>
-      </Left>
-      <Right></Right>
+          </RightList>
+        </Right>
+      </Pod>
     </Page>
   );
 }
