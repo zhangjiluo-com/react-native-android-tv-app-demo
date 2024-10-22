@@ -39,11 +39,11 @@ export const NonVirtualizedGridPage = () => {
             descendingArrowContainerStyle={styles.topArrowContainer}
             ascendingArrowContainerStyle={styles.bottomArrowContainer}
           >
-            <Header
+            {/* <Header
               title="Example of a non-virtualized grid with spatial navigation"
               description="The grid shown on this page is NOT virtualized, which means that when scrolling, the elements not shown in the screen ARE rendered."
               verticalSize={HEADER_SIZE}
-            />
+            /> */}
             <SpatialNavigationView alignInGrid direction="vertical">
               <DefaultFocus>{programsLists.map(renderProgramsList)}</DefaultFocus>
             </SpatialNavigationView>

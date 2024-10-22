@@ -21,12 +21,14 @@ import { useTVPanEvent } from './src/components/PanEvent/useTVPanEvent';
 import { SpatialNavigationDeviceTypeProvider } from '../lib/src/spatial-navigation/context/DeviceContext';
 import { VideoPlayerPage } from './src/pages/video-player-page';
 import { List } from './src/pages/list';
-// import { ListWithVariableSize } from './src/pages/ListWithVariableSize';
-// import { AsynchronousContent } from './src/pages/AsynchronousContent';
+import { ListWithVariableSize } from './src/pages/ListWithVariableSize';
+import { AsynchronousContent } from './src/pages/AsynchronousContent';
 // import * as server from 'expo-http-server';
 // import { useEffect, useState } from 'react';
 // import { NetworkInfo } from 'react-native-network-info';
 // import { WebView } from 'react-native-webview';
+
+// https://doodleipsum.com/223x311/abstract?bg=D96363&i=cb0515299c600124805d923f3619c1ad
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -57,7 +59,7 @@ const TabNavigator = () => {
         screenOptions={{
           headerShown: false,
         }}
-        initialRouteName="Home"
+        initialRouteName="GridWithLongNodesPage"
         tabBar={RenderMenu}
         sceneContainerStyle={{
           marginLeft: theme.sizes.menu.closed,
@@ -66,10 +68,10 @@ const TabNavigator = () => {
       >
         <Tab.Screen name="Home" component={Home} />
         <Tab.Screen name="ProgramGridPage" component={Home3} />
-        {/* <Tab.Screen name="NonVirtualizedGridPage" component={NonVirtualizedGridPage} />
+        <Tab.Screen name="NonVirtualizedGridPage" component={NonVirtualizedGridPage} />
         <Tab.Screen name="GridWithLongNodesPage" component={GridWithLongNodesPage} />
         <Tab.Screen name="ListWithVariableSize" component={ListWithVariableSize} />
-        <Tab.Screen name="AsynchronousContent" component={AsynchronousContent} /> */}
+        <Tab.Screen name="AsynchronousContent" component={AsynchronousContent} />
       </Tab.Navigator>
     </MenuProvider>
   );

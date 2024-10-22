@@ -46,7 +46,7 @@ export const GridWithLongNodesPage = () => {
                 </>
               </DefaultFocus>
             </SpatialNavigationNode>
-            <Spacer gap="$6" />
+            {/* <Spacer gap="$6" />
             <ProgramListWithTitle
               title="Imperative focus on virtualized list"
               parentRef={parentRef}
@@ -65,7 +65,7 @@ export const GridWithLongNodesPage = () => {
                 }}
               />
             </Row>
-            <Spacer gap="$20" />
+            <Spacer gap="$20" /> */}
           </SpatialNavigationScrollView>
         </GridContainer>
       </CenteringView>

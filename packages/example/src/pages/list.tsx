@@ -4,6 +4,7 @@ import styled from '@emotion/native';
 import { View, Text } from 'react-native';
 import { DefaultFocus, SpatialNavigationFocusableView } from 'react-tv-space-navigation';
 import { Page } from '../components/Page';
+import { NonVirtualizedGridPage } from './NonVirtualizedGridPage';
 
 const Pod = styled.View`
   padding: 10px;
@@ -100,6 +101,8 @@ export function List() {
       cover: 'http://baidu.com',
     },
   ];
+
+  return <NonVirtualizedGridPage />;
   return (
     <Page>
       <Pod>
